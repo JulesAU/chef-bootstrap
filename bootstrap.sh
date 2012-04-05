@@ -3,7 +3,7 @@
 # Use it like this:
 # curl https://raw.github.com/JulesAU/chef-bootstrap/master/bootstrap.sh | sudo bash
 
-test -f ~ec2-user/.ssh/authorized_keys && cat ~ec2-user/.ssh/authorized_keys  > /root/.ssh/authorized_keys
+test -f ~ec2-user/.ssh/authorized_keys && cat ~ec2-user/.ssh/authorized_keys  > /root/.ssh/authorized_keys && rm -f ~ec2-user/.ssh/authorized_keys
 
 echo 'Protocol 2
 SyslogFacility AUTHPRIV
