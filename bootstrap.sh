@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Use it like this:
+# curl https://raw.github.com/JulesAU/chef-bootstrap/master/bootstrap.sh | sudo bash
+
 test -f ~ec2-user/.ssh/authorized_keys && cat ~ec2-user/.ssh/authorized_keys  > /root/.ssh/authorized_keys
 
 echo 'Protocol 2
@@ -26,10 +29,9 @@ update-motd  --disable
 yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode
 
 cd /tmp
-export VER=1.8.21
-curl -O http://production.cf.rubygems.org/rubygems/rubygems-$VER.tgz
-tar zxf rubygems-$VER
-cd rubygems-$VER
+curl -O http://production.cf.rubygems.org/rubygems/rubygems-1.8.21.tgz
+tar zxf rubygems-1.8.21
+cd rubygems-1.8.21
 ruby setup.rb --no-format-executable
 gem install chef --no-ri --no-rdoc
 rm -rf /tmp/rubygems*
