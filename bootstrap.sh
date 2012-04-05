@@ -29,9 +29,10 @@ update-motd  --disable
 yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode
 
 cd /tmp
-curl -O http://production.cf.rubygems.org/rubygems/rubygems-1.8.21.tgz
-tar zxf rubygems-1.8.21
-cd rubygems-1.8.21
+export VER=1.8.21
+curl -O http://production.cf.rubygems.org/rubygems/rubygems-$VER.tgz
+tar zxf rubygems-$VER.tgz
+cd rubygems-$VER
 ruby setup.rb --no-format-executable
 gem install chef --no-ri --no-rdoc
 rm -rf /tmp/rubygems*
