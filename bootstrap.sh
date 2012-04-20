@@ -3,7 +3,14 @@
 # Use it like this:
 # curl https://raw.github.com/JulesAU/chef-bootstrap/master/bootstrap.sh | sudo bash
 
+echo "Enter a URL from which we can fetch the authorized public SSH keys:"
+read sshKeyUrl
+
 test -f ~ec2-user/.ssh/authorized_keys && cat ~ec2-user/.ssh/authorized_keys  > /root/.ssh/authorized_keys && rm -f ~ec2-user/.ssh/authorized_keys
+
+mkdir -p /root/.ssh
+curl -s -L $sshKeyUrl > /root/.ssh/authorized_keys
+chmod -R 700 /root/.ssh
 
 echo 'Protocol 2
 SyslogFacility AUTHPRIV
@@ -26,7 +33,7 @@ Subsystem sftp /usr/libexec/openssh/sftp-server
 service sshd reload
 update-motd  --disable
 
-yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode
+yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils
 
 cd /tmp
 export VER=1.8.21
