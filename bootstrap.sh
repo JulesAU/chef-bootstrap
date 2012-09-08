@@ -36,7 +36,7 @@ update-motd  --disable
 yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils
 
 cd /tmp
-export VER=1.8.21
+export VER=1.8.24
 curl -O http://production.cf.rubygems.org/rubygems/rubygems-$VER.tgz
 tar zxf rubygems-$VER.tgz
 cd rubygems-$VER
