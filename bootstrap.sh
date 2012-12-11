@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Use it like this:
-# curl https://raw.github.com/JulesAU/chef-bootstrap/master/bootstrap.sh | sudo bash
+# curl -s -o bootstrap.sh https://raw.github.com/JulesAU/chef-bootstrap/master/bootstrap.sh;  sudo bash bootstrap.sh
 
 echo "Enter a URL from which we can fetch the authorized public SSH keys:"
 read -e sshKeyUrl
