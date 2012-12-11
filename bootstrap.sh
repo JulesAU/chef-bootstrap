@@ -4,7 +4,7 @@
 # curl https://raw.github.com/JulesAU/chef-bootstrap/master/bootstrap.sh | sudo bash
 
 echo "Enter a URL from which we can fetch the authorized public SSH keys:"
-read sshKeyUrl
+read -e sshKeyUrl
 
 test -f ~ec2-user/.ssh/authorized_keys && cat ~ec2-user/.ssh/authorized_keys  > /root/.ssh/authorized_keys && rm -f ~ec2-user/.ssh/authorized_keys
 
