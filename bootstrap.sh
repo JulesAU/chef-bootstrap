@@ -33,7 +33,7 @@ Subsystem sftp /usr/libexec/openssh/sftp-server
 service sshd reload
 update-motd  --disable
 
-yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils
+yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils rsync
 
 cd /tmp
 export VER=1.8.24
