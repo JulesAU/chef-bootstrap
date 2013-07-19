@@ -33,13 +33,6 @@ Subsystem sftp /usr/libexec/openssh/sftp-server
 service sshd reload
 update-motd  --disable
 
-yum install -y ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils rsync
+yum install -y gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils rsync
 
-cd /tmp
-export VER=1.8.24
-curl -O http://production.cf.rubygems.org/rubygems/rubygems-$VER.tgz
-tar zxf rubygems-$VER.tgz
-cd rubygems-$VER
-ruby setup.rb --no-format-executable
-gem install chef --no-ri --no-rdoc
-rm -rf /tmp/rubygems*
+curl -L https://www.opscode.com/chef/install.sh | bash
