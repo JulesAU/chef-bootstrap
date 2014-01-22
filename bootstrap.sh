@@ -11,6 +11,7 @@ test -f ~ec2-user/.ssh/authorized_keys && cat ~ec2-user/.ssh/authorized_keys  > 
 mkdir -p /root/.ssh
 curl -s -L $sshKeyUrl > /root/.ssh/authorized_keys
 chmod -R 700 /root/.ssh
+restorecon -r -vv /root/.ssh
 
 echo 'Protocol 2
 SyslogFacility AUTHPRIV
