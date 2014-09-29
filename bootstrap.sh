@@ -34,6 +34,6 @@ Subsystem sftp /usr/libexec/openssh/sftp-server
 service sshd reload
 update-motd  --disable
 
-yum install -y gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils rsync
+yum install -y gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils rsync libffi-devel
 
 curl -L https://www.opscode.com/chef/install.sh | bash
