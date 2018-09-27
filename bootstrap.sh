@@ -36,4 +36,5 @@ update-motd  --disable
 
 yum install -y gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils rsync libffi-devel
 
-curl -L https://www.opscode.com/chef/install.sh | bash
+# curl -L https://www.opscode.com/chef/install.sh | bash
+curl -LO https://omnitruck.chef.io/install.sh && sudo bash ./install.sh -v 12.5.1 && rm -f install.sh
