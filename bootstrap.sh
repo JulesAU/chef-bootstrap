@@ -3,8 +3,12 @@
 # Use it like this:
 # curl -L -s -o bootstrap.sh https://raw.githubusercontent.com/JulesAU/chef-bootstrap/master/bootstrap.sh;  sudo bash bootstrap.sh
 
-echo "Enter a URL from which we can fetch the authorized public SSH keys:"
-read -e sshKeyUrl
+sshKeyUrl=$1
+
+if [ -z $sshKeyUrl ] ; then
+	echo "Enter a URL from which we can fetch the authorized public SSH keys:"
+	read -e sshKeyUrl
+fi
 
 test -f ~ec2-user/.ssh/authorized_keys && cat ~ec2-user/.ssh/authorized_keys  > /root/.ssh/authorized_keys && rm -f ~ec2-user/.ssh/authorized_keys
 
@@ -34,6 +38,7 @@ Subsystem sftp /usr/libexec/openssh/sftp-server
 service sshd reload
 update-motd  --disable
 
+yum update -y
 yum install -y gcc gcc-c++ automake autoconf make curl dmidecode authconfig policycoreutils rsync libffi-devel
 
 # curl -L https://www.opscode.com/chef/install.sh | bash
